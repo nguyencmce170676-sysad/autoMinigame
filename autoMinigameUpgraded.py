@@ -133,16 +133,18 @@ def perform_move(move):
     offset = 200  # drag distance
 
     pyautogui.moveTo(center_x, center_y, duration=0.05)
+    pyautogui.mouseDown()
 
     if move == "up":
-        pyautogui.dragRel(0, -offset, duration=0.1)
+        pyautogui.moveRel(0, -offset, duration=0.1)
     elif move == "down":
-        pyautogui.dragRel(0, offset, duration=0.1)
+        pyautogui.moveRel(0, offset, duration=0.1)
     elif move == "left":
-        pyautogui.dragRel(-offset, 0, duration=0.1)
+        pyautogui.moveRel(-offset, 0, duration=0.1)
     elif move == "right":
-        pyautogui.dragRel(offset, 0, duration=0.1)
+        pyautogui.moveRel(offset, 0, duration=0.1)
 
+    pyautogui.mouseUp()
     print(f"Move executed: {move.upper()}")
 
 # ====== Main loop ======
